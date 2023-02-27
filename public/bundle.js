@@ -104,16 +104,23 @@
 	    hashHistory = _require.hashHistory;
 
 	var Main = __webpack_require__(247);
+	var Countdown = __webpack_require__(249);
+	var Timer = __webpack_require__(250);
 
-	__webpack_require__(249);
+	__webpack_require__(251);
 	$(document).foundation();
 
-	__webpack_require__(253);
+	__webpack_require__(255);
 
 	ReactDOM.render(React.createElement(
 	  Router,
 	  { history: hashHistory },
-	  React.createElement(Route, { path: '/', component: Main })
+	  React.createElement(
+	    Route,
+	    { path: '/', component: Main },
+	    React.createElement(Route, { path: 'countdown', component: Countdown }),
+	    React.createElement(IndexRoute, { component: Timer })
+	  )
 	), document.getElementById('app'));
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
@@ -26154,7 +26161,8 @@
 	    return React.createElement(
 	        "div",
 	        null,
-	        React.createElement(Navigation, null)
+	        React.createElement(Navigation, null),
+	        props.children
 	    );
 	};
 
@@ -26203,7 +26211,7 @@
 	                        null,
 	                        React.createElement(
 	                            Link,
-	                            { to: "/", activeClassName: "active", activeStyle: { fontWeight: "bold" } },
+	                            { to: "/countdown", activeClassName: "active", activeStyle: { fontWeight: "bold" } },
 	                            "Countdown"
 	                        )
 	                    )
@@ -26232,13 +26240,63 @@
 /* 249 */
 /***/ (function(module, exports, __webpack_require__) {
 
+	"use strict";
+
+	var React = __webpack_require__(8);
+
+	var Countdown = React.createClass({
+	    displayName: "Countdown",
+	    render: function render() {
+	        return React.createElement(
+	            "div",
+	            null,
+	            React.createElement(
+	                "h1",
+	                null,
+	                "Countdown"
+	            )
+	        );
+	    }
+	});
+
+	module.exports = Countdown;
+
+/***/ }),
+/* 250 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(8);
+
+	var Timer = React.createClass({
+	    displayName: "Timer",
+	    render: function render() {
+	        return React.createElement(
+	            "div",
+	            null,
+	            React.createElement(
+	                "h1",
+	                null,
+	                "Timer"
+	            )
+	        );
+	    }
+	});
+
+	module.exports = Timer;
+
+/***/ }),
+/* 251 */
+/***/ (function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(250);
+	var content = __webpack_require__(252);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(252)(content, {});
+	var update = __webpack_require__(254)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -26255,10 +26313,10 @@
 	}
 
 /***/ }),
-/* 250 */
+/* 252 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(251)();
+	exports = module.exports = __webpack_require__(253)();
 	// imports
 
 
@@ -26269,7 +26327,7 @@
 
 
 /***/ }),
-/* 251 */
+/* 253 */
 /***/ (function(module, exports) {
 
 	/*
@@ -26325,7 +26383,7 @@
 
 
 /***/ }),
-/* 252 */
+/* 254 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*
@@ -26577,16 +26635,16 @@
 
 
 /***/ }),
-/* 253 */
+/* 255 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(254);
+	var content = __webpack_require__(256);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(252)(content, {});
+	var update = __webpack_require__(254)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -26603,15 +26661,15 @@
 	}
 
 /***/ }),
-/* 254 */
+/* 256 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(251)();
+	exports = module.exports = __webpack_require__(253)();
 	// imports
 
 
 	// module
-	exports.push([module.id, ".top-bar, .top-bar ul {\n  background-color: #333333; }\n\n.top-bar .menu-text {\n  color: white; }\n", ""]);
+	exports.push([module.id, ".top-bar, .top-bar ul {\n  background-color: #333333; }\n\n.top-bar .menu-text {\n  color: white; }\n\n.top-bar .menu > .menu-text > a {\n  display: inline;\n  padding: 0; }\n\n.top-bar .active-link {\n  font-weight: bold; }\n", ""]);
 
 	// exports
 

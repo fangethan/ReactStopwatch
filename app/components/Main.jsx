@@ -5,6 +5,7 @@ var Main = (props) => {
     return (
         <div>
             <Navigation></Navigation>
+            {props.children}
     </div>
     );
 }
