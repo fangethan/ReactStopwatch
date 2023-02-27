@@ -24,7 +24,7 @@ module.exports = {
     alias: {
       Main: "app/components/Main.jsx",
       Navigation: "app/components/Navigation.jsx",
-      applicationStyles: "app/styles/app.css",
+      applicationStyles: "app/styles/app.scss",
     },
     extensions: ['', '.js', '.jsx']
   },
@@ -33,7 +33,7 @@ module.exports = {
       {
         loader: 'babel-loader',
         query: {
-          presets: ['react', 'es2015']
+          presets: ['react', 'es2015', "stage-0"]
         },
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/
