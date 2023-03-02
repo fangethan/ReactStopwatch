@@ -105,12 +105,12 @@
 
 	var Main = __webpack_require__(247);
 	var Countdown = __webpack_require__(249);
-	var Timer = __webpack_require__(261);
+	var Timer = __webpack_require__(262);
 
-	__webpack_require__(262);
+	__webpack_require__(263);
 	$(document).foundation();
 
-	__webpack_require__(266);
+	__webpack_require__(267);
 
 	ReactDOM.render(React.createElement(
 	  Router,
@@ -26162,7 +26162,15 @@
 	        "div",
 	        null,
 	        React.createElement(Navigation, null),
-	        props.children
+	        React.createElement(
+	            "div",
+	            { className: "row" },
+	            React.createElement(
+	                "div",
+	                { className: "column small-centered medium-6 large-4" },
+	                props.children
+	            )
+	        )
 	    );
 	};
 
@@ -26244,14 +26252,30 @@
 
 	var React = __webpack_require__(8);
 	var Clock = __webpack_require__(250);
+	var CountdownForm = __webpack_require__(261);
 
 	var Countdown = React.createClass({
 	    displayName: "Countdown",
+
+	    getInitialState: function getInitialState() {
+	        return { count: 0 };
+	    },
+
+	    handleSetCountdown: function handleSetCountdown(seconds) {
+	        this.setState({
+	            count: seconds
+	        });
+	    },
+
 	    render: function render() {
+	        var count = this.state.count;
+
+
 	        return React.createElement(
 	            "div",
 	            null,
-	            React.createElement(Clock, { totalSeconds: 129 })
+	            React.createElement(Clock, { totalSeconds: count }),
+	            React.createElement(CountdownForm, { onSetCountdown: this.handleSetCountdown })
 	        );
 	    }
 	});
@@ -27484,6 +27508,50 @@
 
 	"use strict";
 
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+	var React = __webpack_require__(8);
+
+	var CountdownForm = React.createClass({
+	    displayName: "CountdownForm",
+
+	    onSubmit: function onSubmit(e) {
+	        e.preventDefault();
+	        var seconds = this.refs.seconds.value;
+	        console.log(typeof seconds === "undefined" ? "undefined" : _typeof(seconds));
+
+	        if (seconds.match(/^[0-9]*$/)) {
+	            this.refs.seconds.value = "";
+	            this.props.onSetCountdown(parseInt(seconds, 10));
+	        }
+	    },
+
+	    render: function render() {
+	        return React.createElement(
+	            "div",
+	            null,
+	            React.createElement(
+	                "form",
+	                { onSubmit: this.onSubmit, ref: "form", className: "countdown-form" },
+	                React.createElement("input", { type: "number", ref: "seconds", placeholder: "Enter the time in seconds" }),
+	                React.createElement(
+	                    "button",
+	                    { className: "button expanded" },
+	                    "Start"
+	                )
+	            )
+	        );
+	    }
+	});
+
+	module.exports = CountdownForm;
+
+/***/ }),
+/* 262 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+
 	var React = __webpack_require__(8);
 
 	var Timer = React.createClass({
@@ -27504,16 +27572,16 @@
 	module.exports = Timer;
 
 /***/ }),
-/* 262 */
+/* 263 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(263);
+	var content = __webpack_require__(264);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(265)(content, {});
+	var update = __webpack_require__(266)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -27530,10 +27598,10 @@
 	}
 
 /***/ }),
-/* 263 */
+/* 264 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(264)();
+	exports = module.exports = __webpack_require__(265)();
 	// imports
 
 
@@ -27544,7 +27612,7 @@
 
 
 /***/ }),
-/* 264 */
+/* 265 */
 /***/ (function(module, exports) {
 
 	/*
@@ -27600,7 +27668,7 @@
 
 
 /***/ }),
-/* 265 */
+/* 266 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*
@@ -27852,16 +27920,16 @@
 
 
 /***/ }),
-/* 266 */
+/* 267 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(267);
+	var content = __webpack_require__(268);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(265)(content, {});
+	var update = __webpack_require__(266)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -27878,10 +27946,10 @@
 	}
 
 /***/ }),
-/* 267 */
+/* 268 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(264)();
+	exports = module.exports = __webpack_require__(265)();
 	// imports
 
 
