@@ -27521,7 +27521,7 @@
 	        console.log(typeof seconds === "undefined" ? "undefined" : _typeof(seconds));
 
 	        if (seconds.match(/^[0-9]*$/)) {
-	            this.refs.seconds.value = "";
+	            this.refs.seconds.value = '';
 	            this.props.onSetCountdown(parseInt(seconds, 10));
 	        }
 	    },
@@ -27533,7 +27533,7 @@
 	            React.createElement(
 	                "form",
 	                { onSubmit: this.onSubmit, ref: "form", className: "countdown-form" },
-	                React.createElement("input", { type: "number", ref: "seconds", placeholder: "Enter the time in seconds" }),
+	                React.createElement("input", { type: "text", ref: "seconds", placeholder: "Enter the time in seconds" }),
 	                React.createElement(
 	                    "button",
 	                    { className: "button expanded" },

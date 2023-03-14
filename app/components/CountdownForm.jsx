@@ -7,7 +7,7 @@ var CountdownForm = React.createClass({
         console.log(typeof seconds)
 
         if(seconds.match(/^[0-9]*$/)){
-            this.refs.seconds.value = ""
+            this.refs.seconds.value = '';
             this.props.onSetCountdown(parseInt(seconds,10))
         }
         
@@ -18,7 +18,7 @@ var CountdownForm = React.createClass({
         return (
             <div>
                 <form onSubmit={this.onSubmit} ref="form" className="countdown-form" >
-                    <input type="number" ref="seconds" placeholder="Enter the time in seconds" />
+                    <input type="text" ref="seconds" placeholder="Enter the time in seconds" />
                     <button className="button expanded">Start</button>
                 </form>    
 
