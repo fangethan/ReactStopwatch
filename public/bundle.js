@@ -26258,7 +26258,10 @@
 	    displayName: "Countdown",
 
 	    getInitialState: function getInitialState() {
-	        return { count: 0 };
+	        return {
+	            count: 0,
+	            countdownStatus: "stopped"
+	        };
 	    },
 
 	    componentDidUpdate: function componentDidUpdate(prevProps, prevState) {
