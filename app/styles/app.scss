@@ -3,3 +3,7 @@
 @import "./components/clock";
 @import "./components/controls";
 @import "./components/page-title";
+
+@import "./base/foundation-settings";
+@import "foundation";
+@include foundation-everything;
