@@ -2,7 +2,7 @@
 
 This app allows you to either use the timer or countdown function.\
 The timer function counts the amount of seconds starting from 0. Adding a lap button and displaying the list of times from the lapped times is WIP.\
-The countdown function is a stopwatch where user sets a time in seconds and countsdown to 0. Adding a notiification sound when countdown hits 0 is WIP.\
+The countdown function is a stopwatch where user sets a time in seconds and countsdown to 0. Adding a notiification sound when countdown hits 0 is WIP.
 
 ## Available Scripts
 
